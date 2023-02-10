@@ -10,7 +10,7 @@ function App() {
           <main>
               <Board/>
           </main>
-          <Footer/>
+          <Footer activeTaskCount={10} finishedTaskCount={20}/>
       </Layout>
   );
 }

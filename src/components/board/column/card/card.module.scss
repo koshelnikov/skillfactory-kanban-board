@@ -5,4 +5,8 @@
   min-height: 58px;
   padding: 12px;
   cursor: pointer;
+
+  &:not(:first-of-type) {
+    margin-top: 8px;
+  }
 }
