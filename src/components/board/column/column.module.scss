@@ -1,0 +1,37 @@
+.column {
+
+  width: 282px;
+  min-height: 210px;
+  border-radius: 4px;
+  background-color: #F4F5F7;
+  .header {
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+    font-size: 0.75em;
+    height: 48px;
+    color: #5E6C84;
+    text-transform: uppercase;
+    padding-left: 12px;
+    display: flex;
+    align-items: center;
+    user-select: none;
+    position: sticky;
+    top: 0;
+    background-color: #e5e7ea;
+  }
+
+  .wrapper {
+
+    .body {
+      padding: 0 6px 0 6px;
+      margin-bottom: 3px;
+      overflow: auto;
+      max-height: calc(100vh - 200px);
+
+      > *:not(:first-of-type) {
+        margin-top: 8px;
+      }
+    }
+  }
+
+}

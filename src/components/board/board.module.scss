@@ -1,0 +1,7 @@
+.board {
+  padding: 24px 16px;
+  display: flex;
+  > *:not(:first-of-type) {
+    margin-left: 24px;
+  }
+}
