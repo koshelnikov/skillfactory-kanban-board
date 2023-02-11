@@ -1,7 +1,8 @@
 import css from './card.module.scss'
-import {IconRemove} from "../../../icons/icon-remove";
 import {useTasks} from "../../../../hooks/tasks/use-tasks";
 import {useNavigate} from "react-router-dom";
+import {Button} from "../../../buttons/button/button";
+import {IconRemove} from "../../../icons/icon-remove";
 
 export const Card = (props) => {
     const {removeTask} = useTasks()
@@ -10,13 +11,14 @@ export const Card = (props) => {
     return (
         <div className={css.card} onClick={() => navigate(`/tasks/${props.id}`)}>
             <span>{props.name}</span>
-            <div className={css.remove} onClick={(e) =>
-            {
-                removeTask(props.id);
-                e.stopPropagation();
-            }}>
+            <Button className={css['button-remove']} onClick={
+                (e) =>
+                {
+                    removeTask(props.id);
+                    e.stopPropagation();
+                }}>
                 <IconRemove/>
-            </div>
+            </Button>
         </div>
     )
 }
