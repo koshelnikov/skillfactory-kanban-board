@@ -1,6 +1,5 @@
 import {Column} from "./column/column";
 import css from './board.module.scss';
-import {TaskProvider} from "../../hooks/tasks/task-provider";
 import {useTasks} from "../../hooks/tasks/use-tasks";
 
 export const Board = () => {

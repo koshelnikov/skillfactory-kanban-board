@@ -27,7 +27,7 @@ export const Column = (props) => {
                 <div className={css.body}>
                     {hasTasks &&
                     <Scrollbars autoHeightMax={mainContentHeight} autoHide autoHeight>
-                        {tasks.map((task) => <Card key={task.id} name={task.name}/>)}
+                        {tasks.map((task) => <Card key={task.id} id={task.id} name={task.name}/>)}
                     </Scrollbars>
                     }
                     {isNewTaskInputShown &&

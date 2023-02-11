@@ -5,6 +5,8 @@ import {useEffect, useState} from "react";
 
 export const TaskProvider = (props) => {
     const [tasks, setTasks] = useState([]);
+    const [isLoaded, setIsLoaded] = useState(false);
+
     const [states] = useState([
         {id: 1, name: 'backlog', state: 'backlog'},
         {id: 2, name: 'ready', state: 'ready'},
@@ -12,16 +14,20 @@ export const TaskProvider = (props) => {
         {id: 4, name: 'finished', state: 'finished'}
     ]);
 
+    const findById = (id) =>
+        tasks.find((task) => task.id === parseInt(id));
+
     useEffect(() => {
-        if (tasks.length > 0) {
+        if (isLoaded) {
             localStorage.setItem('tasks', JSON.stringify(tasks))
         }
-    }, [tasks])
+    }, [tasks, isLoaded])
 
     useEffect(() => {
         const tasks = localStorage.getItem('tasks');
         if (tasks) {
             setTasks(JSON.parse(tasks))
+            setIsLoaded(true);
         }
     }, [])
 
@@ -36,6 +42,12 @@ export const TaskProvider = (props) => {
 
             setTasks([...tasks, task])
         },
+        removeTask: (id) => {
+            const task = findById(id);
+            if (task) {
+                setTasks([...tasks.filter(item => item.id !== task.id)])
+            }
+        },
         getTasksByState: (state) => {
             return tasks.filter(task => task.state === state);
         },
@@ -43,7 +55,7 @@ export const TaskProvider = (props) => {
             return tasks.filter(task => task.state !== state);
         },
         moveTask: (id, state) => {
-            const task = tasks.find((task) => task.id === parseInt(id));
+            const task = findById(id);
             if (task) {
                 task.state = state;
             }

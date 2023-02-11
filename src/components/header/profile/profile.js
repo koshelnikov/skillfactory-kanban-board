@@ -5,7 +5,7 @@ import {useState} from "react";
 
 export const Profile = () => {
     const [isMenuShown, setIsMenuShown] = useState(false);
-    console.log(isMenuShown);
+
     return (
         <div className={css.profile}
              onClick={() => setIsMenuShown(!isMenuShown)}>
