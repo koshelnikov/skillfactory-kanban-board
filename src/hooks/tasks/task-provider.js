@@ -1,5 +1,5 @@
 import {TaskContext} from "./task-context";
-import {useState} from "react";
+import {useEffect, useState} from "react";
 
 
 
@@ -10,7 +10,20 @@ export const TaskProvider = (props) => {
         {id: 2, name: 'ready', state: 'ready'},
         {id: 3, name: 'in progress', state: 'inProgress'},
         {id: 4, name: 'finished', state: 'finished'}
-    ])
+    ]);
+
+    useEffect(() => {
+        if (tasks.length > 0) {
+            localStorage.setItem('tasks', JSON.stringify(tasks))
+        }
+    }, [tasks])
+
+    useEffect(() => {
+        const tasks = localStorage.getItem('tasks');
+        if (tasks) {
+            setTasks(JSON.parse(tasks))
+        }
+    }, [])
 
     const context = {
         states,
