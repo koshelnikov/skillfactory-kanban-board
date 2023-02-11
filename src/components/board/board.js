@@ -1,21 +1,17 @@
 import {Column} from "./column/column";
 import css from './board.module.scss';
-import {Card} from "./column/card/card";
+import {TaskProvider} from "../../hooks/tasks/task-provider";
+import {useTasks} from "../../hooks/tasks/use-tasks";
 
 export const Board = () => {
+    const {states} = useTasks();
+
     return (
         <div className={css.board}>
-            <Column name={'backlog'}>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-                <Card/>
-            </Column>
-            <Column name={'ready'}/>
-            <Column name={'in progress'}/>
-            <Column name={'finished'}/>
+            {states.map(
+                (state) =>
+                    <Column key={state.id} name={state.name} state={state.state}/>
+            )}
         </div>
     )
 }

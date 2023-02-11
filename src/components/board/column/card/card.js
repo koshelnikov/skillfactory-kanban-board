@@ -1,11 +1,7 @@
 import css from './card.module.scss'
 
-export const Card = () => {
+export const Card = (props) => {
     return (
-        <div className={css.card}>
-            Some long text where we need to know maximum height
-            Some long text where we need to know maximum height
-            Some long text where we need to know maximum height
-        </div>
+        <div className={css.card}>{props.name}</div>
     )
 }
