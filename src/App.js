@@ -14,7 +14,7 @@ const router = createBrowserRouter([
         element: <Board/>
     },
     {
-        path: "/tasks/:id",
+        path: "/tasks/:cardId",
         element: <Card/>
     }
     ])

@@ -5,7 +5,7 @@ import {Button} from "../../../shared/buttons/button/button";
 import {IconRemove} from "../../../shared/icons/icon-remove";
 
 export const Card = (props) => {
-    const {removeTask} = useTasks()
+
     const navigate = useNavigate();
 
     return (
@@ -14,7 +14,7 @@ export const Card = (props) => {
             <Button className={css['button-remove']} onClick={
                 (e) =>
                 {
-                    removeTask(props.id);
+                    props.onRemove(props.id)
                     e.stopPropagation();
                 }}>
                 <IconRemove/>

@@ -11,14 +11,14 @@ import {IconConfirm} from "../../shared/icons/icon-confirm";
 export const Card = () => {
     const navigate = useNavigate();
     const {getTaskById, updateTask} = useTasks();
-    const {id} = useParams();
+    const {cardId} = useParams();
     const [task, setTask] = useState();
 
     useEffect(() => {
-        if (id) {
-            setTask(getTaskById(id))
+        if (cardId) {
+            setTask(getTaskById(cardId))
         }
-    }, [id])
+    }, [cardId])
 
     const navigateBack = () => navigate(-1);
 

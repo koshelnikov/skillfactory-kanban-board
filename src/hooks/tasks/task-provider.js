@@ -1,11 +1,31 @@
 import {TaskContext} from "./task-context";
 import {useEffect, useState} from "react";
 
+/*
 
+State
+{
+ id: number,
+ name: string,
+ state: string
+}
+
+{
+
+Task
+{
+    id: number,
+    name: string,
+    description: string | undefined
+    state: string => state.state
+}
+
+ */
 
 export const TaskProvider = (props) => {
     const [tasks, setTasks] = useState([]);
     const [isLoaded, setIsLoaded] = useState(false);
+    const [idCounter, setIdCounter] = useState(0);
 
     const [states] = useState([
         {id: 1, name: 'backlog', state: 'backlog'},
@@ -27,19 +47,21 @@ export const TaskProvider = (props) => {
         const tasks = localStorage.getItem('tasks');
         if (tasks) {
             setTasks(JSON.parse(tasks))
-            setIsLoaded(true);
         }
+        setIsLoaded(true);
     }, [])
 
     const context = {
         states,
-        addTask: (name, state) => {
+        addTask: (name) => {
+            const id = idCounter + 1;
             const task = {
-                id: tasks.length + 1,
+                id,
                 name,
-                state
+                state: 'backlog'
             }
 
+            setIdCounter(id);
             setTasks([...tasks, task])
         },
         updateTask: (item) => {
