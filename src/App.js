@@ -21,7 +21,6 @@ const router = createBrowserRouter([
 
 function App() {
   return (
-
           <Layout>
               <Header/>
               <main>

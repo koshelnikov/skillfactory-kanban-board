@@ -3,10 +3,10 @@ import {LayoutProvider} from "../../hooks/layout/layout-provider";
 import {TaskProvider} from "../../hooks/tasks/task-provider";
 export const Layout = (props) => {
     return (
-        <LayoutProvider>
-            <TaskProvider>
+        <TaskProvider>
+            <LayoutProvider>
                 <div className={css.layout}>{props.children}</div>
-            </TaskProvider>
-        </LayoutProvider>
+            </LayoutProvider>
+        </TaskProvider>
     )
 }
