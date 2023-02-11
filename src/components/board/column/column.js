@@ -74,9 +74,11 @@ export const Column = (props) => {
                     {(isNewTaskInputShown || isNewTaskSelectShown) &&
                     <button onClick={() => {
                         if (props.state === 'backlog') {
-                            setIsNewTaskInputShown(false)
-                            addTask(inputCardName);
-                            setInputCardName(undefined);
+                            if (inputCardName){ \\данное условие не позволит создавать новые Task-и при пустом полe Input
+                                    setIsNewTaskInputShown(false)
+                                    addTask(inputCardName);
+                                    setInputCardName(undefined);
+                                }
                         } else {
                             setIsNewTaskSelectShown(false);
                             moveTask(selectedTaskId, props.state);
