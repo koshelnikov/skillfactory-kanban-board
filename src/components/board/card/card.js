@@ -1,7 +1,7 @@
 import css from './card.module.scss';
 import {useNavigate} from 'react-router-dom'
-import {Button} from "../../buttons/button/button";
-import {IconRemove} from "../../icons/icon-remove";
+import {Button} from "../../shared/buttons/button/button";
+import {IconRemove} from "../../shared/icons/icon-remove";
 
 export const Card = () => {
     const navigate = useNavigate();

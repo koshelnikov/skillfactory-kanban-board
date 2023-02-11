@@ -1,5 +1,5 @@
-import {IconChevron} from "../../icons/icon-chevron";
-import {IconProfile} from "../../icons/icon-profile";
+import {IconChevron} from "../../shared/icons/icon-chevron";
+import {IconProfile} from "../../shared/icons/icon-profile";
 import css from './profile.module.scss'
 import {useState} from "react";
 
